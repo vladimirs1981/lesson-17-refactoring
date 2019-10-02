@@ -7,15 +7,29 @@ import java.util.List;
 
 public class TheYard {
 
-	private String iceCreamFlavor;
-	private boolean cherryOnTop;
-	private String syrupFlavor;
+	public static class Milkshake {
+		public String iceCreamFlavor;
+		public boolean cherryOnTop;
+		public String syrupFlavor;
 
+		public Milkshake() {
+			
+		}
+	}
+
+
+	private Milkshake milkShake = new Milkshake();
+
+	public void setMilkshake(String iceCreamFlavor, boolean cherryOnTop, String syrupFlavor) {
+		this.milkShake.iceCreamFlavor = iceCreamFlavor;
+		this.milkShake.cherryOnTop = cherryOnTop;
+		this.milkShake.syrupFlavor = syrupFlavor;
+	}
 	private List<Boy> theBoys = new ArrayList<Boy>();
 
 	void bringAllTheBoysToTheYard() {
 		for (Boy aBoy : theBoys) {
-			aBoy.bringToTheYard(iceCreamFlavor, cherryOnTop, syrupFlavor);
+			aBoy.bringToTheYard(milkShake.iceCreamFlavor, milkShake.cherryOnTop, milkShake.syrupFlavor);
 		}
 	}
 
@@ -23,11 +37,6 @@ public class TheYard {
 		this.theBoys.add(boy);
 	}
 
-	public void setMilkshake(String iceCreamFlavor, boolean cherryOnTop, String syrupFlavor) {
-		this.iceCreamFlavor = iceCreamFlavor;
-		this.cherryOnTop = cherryOnTop;
-		this.syrupFlavor = syrupFlavor;
-	}
 
 	public static void main(String[] args) {
 		TheYard theYard = new TheYard();
