@@ -1,4 +1,5 @@
 package exercises.ella;
+
 import java.awt.BorderLayout;
 import java.awt.Dimension;
 import java.awt.Image;
@@ -69,12 +70,9 @@ public class Game implements MouseListener, ActionListener {
 
 	}
 
-
 	void setup() {
 
-		// System.out.println(xList);
 		frame.setSize(1800, 1000);
-		// mainPanel.setPreferredSize(new Dimension(500, 500));
 		frame.setLayout(new BorderLayout());
 		mainPanel.add(panel, BorderLayout.WEST);
 		mainPanel.add(bar, BorderLayout.EAST);
@@ -93,7 +91,7 @@ public class Game implements MouseListener, ActionListener {
 		} catch (Exception ex) {
 			System.out.println(ex);
 		}
-		
+
 		try {
 			addButton("diamond.png", 315, 900);
 
@@ -101,13 +99,8 @@ public class Game implements MouseListener, ActionListener {
 			System.out.println(ex);
 		}
 		try {
-			Image pawprints = ImageIO.read(getClass().getResource("pawprints.png"));
-			pawprintsButton = new JButton(new ImageIcon(pawprints));
-			panel.setLayout(null);
-			panel.add(pawprintsButton);
-			pawprintsButton.addMouseListener(this);
-			pawprintsButton.setBorder(null);
-			pawprintsButton.setBounds(1079, 782, 30, 30);
+
+			addButton("pawprints.png", 1079, 782);
 		} catch (Exception ex) {
 			System.out.println(ex);
 		}
@@ -261,54 +254,13 @@ public class Game implements MouseListener, ActionListener {
 
 	@Override
 	public void mouseClicked(MouseEvent e) {
-		// TODO Auto-generated method stub
+
 		System.out.println(e.getX());
 		System.out.println(e.getY());
-		// if(e.getX() <= 10){
-		// ringName.setText("Found me!");
-		// ringName.setBounds(foundMeX, findMeY + 40, foundMeWidth,
-		// foundMeHeight);
-
-		// }
-		// if (e.getX() >= sparklesX - 15 && e.getX() <= sparklesX + 15 &&
-		// e.getY() <= sparklesY + 15 && e.getY() >= sparklesY - 15) {
-		// bar.foundSparkles();
-		// checkMe4 = true;
-		// } else if (e.getX() >= ringX - 15 && e.getX() <= ringX + 15 &&
-		// e.getY() <= ringY + 15 && e.getY() >= ringY - 15) {
-		// bar.foundRing();
-		// checkMe2 = true;
-		// } else if (e.getX() >= backpackX - 15 && e.getX() <= backpackX + 15
-		// && e.getY() <= backpackY + 15 && e.getY() >= backpackY - 15) {
-		// bar.foundBackpack();
-		// checkMe3 = true;
-		// } else if (e.getX() >= pawprintX - 15 && e.getX() <= pawprintX + 15
-		// && e.getY() <= pawprintY + 15 && e.getY() >= pawprintY - 15) {
-		// bar.foundPawprint();
-		// checkMe5 = true;
-		// } else if (e.getX() >= diamondX - 15 && e.getX() <= diamondX + 15 &&
-		// e.getY() <= diamondY + 15 && e.getY() >= diamondY - 15) {
-		// bar.foundDiamond();
-		// checkMe6 = true;
-		// } else if (e.getX() >= snakeX - 15 && e.getX() <= snakeX + 15 &&
-		// e.getY() <= snakeY + 15 && e.getY() >= snakeY - 15) {
-		// bar.foundSnake();
-		// checkMe = true;
-		// }
-		// if (checkMe == true && checkMe2 == true && checkMe3 == true &&
-		// checkMe4 == true && checkMe5 == true && checkMe6 == true) {
-		// JOptionPane.showMessageDialog(null, "Congratulations! You found all
-		// the pictures! \n Ready for level 2?");
-		// panel.nextLevelPicture();
-		// bar.nextLevelBar();
-		// gameNumber += 1;
-		// }
-
 	}
 
 	@Override
 	public void mousePressed(MouseEvent e) {
-		// TODO Auto-generated method stub
 		if (e.getSource() == (balloonButton)) {
 			balloonButton.setVisible(false);
 			bar.foundBalloon();
@@ -347,7 +299,9 @@ public class Game implements MouseListener, ActionListener {
 
 		if (checkFoundAll()) {
 			timer.stop();
-			JOptionPane.showMessageDialog(null, "Congratulations! You found all the pictures! \n You finished the puzzle in: " + time + " seconds. \n Ready for level 2?");
+			JOptionPane.showMessageDialog(null,
+					"Congratulations! You found all the pictures! \n You finished the puzzle in: " + time
+							+ " seconds. \n Ready for level 2?");
 			panel.nextLevelPicture();
 			bar.nextLevelBar();
 			gameNumber += 1;
@@ -399,13 +353,19 @@ public class Game implements MouseListener, ActionListener {
 			bar.foundCactus();
 			checkMeL27 = true;
 		}
-		
-		if (checkMeL2 == true && checkMeL22 == true && checkMeL23 == true && checkMeL24 == true && checkMeL25 == true
-				&& checkMeL26 == true && checkMeL27 == true) {
+
+		if (checkFoundAllLevel2()) {
 			timer.stop();
-			JOptionPane.showMessageDialog(null, "Congratulations! You found all the pictures! \n You finished the puzzle in: " + time + " seconds.");
+			JOptionPane.showMessageDialog(null,
+					"Congratulations! You found all the pictures! \n You finished the puzzle in: " + time
+							+ " seconds.");
 			System.exit(0);
 		}
+	}
+
+	private boolean checkFoundAllLevel2() {
+		return checkMeL2 == true && checkMeL22 == true && checkMeL23 == true && checkMeL24 == true && checkMeL25 == true
+				&& checkMeL26 == true && checkMeL27 == true;
 	}
 
 	private boolean checkFoundAll() {
@@ -415,24 +375,20 @@ public class Game implements MouseListener, ActionListener {
 
 	@Override
 	public void mouseReleased(MouseEvent e) {
-		// TODO Auto-generated method stub
 
 	}
 
 	@Override
 	public void mouseEntered(MouseEvent e) {
-		// TODO Auto-generated method stub
 
 	}
 
 	@Override
 	public void mouseExited(MouseEvent e) {
-		// TODO Auto-generated method stub
 	}
 
 	@Override
 	public void actionPerformed(ActionEvent e) {
-		// TODO Auto-generated method stub
 		time += 1;
 		bar.showTime(time);
 	}
