@@ -45,7 +45,6 @@ public class SideBar extends JPanel implements ActionListener, KeyListener {
 
 	SideBar() {
 		setPreferredSize(new Dimension(285, 1000));
-		// bar.setBounds(1800, 900, 500, 500);
 		add(barTitle);
 		barTitle.setFont(new Font("Serif", Font.PLAIN, 45));
 		setLayout(null);
@@ -58,8 +57,7 @@ public class SideBar extends JPanel implements ActionListener, KeyListener {
 	}
 
 	void objectNames() {
-
-		
+	
 		add(snakeName);
 		snakeName.setFont(new Font("Serif", Font.PLAIN, 30));
 		snakeName.setBounds(102, findMeY, 100, 75);
