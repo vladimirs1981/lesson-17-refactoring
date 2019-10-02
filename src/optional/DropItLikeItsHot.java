@@ -12,11 +12,14 @@ public class DropItLikeItsHot {
 
 	private void snoopSay() {
 		/*
-		 * When the thePimpsInTheCrib ma, drop it like it's hot. 
-		 * When the thePigsTryToGetAtYa, drop it like it's hot. 
-		 * When aNiggaGetAnAttitude, drop it like it's hot.
+		 * When the thePimpsInTheCrib ma, drop it like it's hot. When the
+		 * thePigsTryToGetAtYa, drop it like it's hot. When aNiggaGetAnAttitude, drop it
+		 * like it's hot.
 		 */
-		if (getWhoIsInTheCrib().equals("The Pimp") || getWhoThePigsAreAfter().equals(snoop) || getWhoHasAnAttitude().equals("a nigga"))
+		boolean whoIsTheCrib = getWhoIsInTheCrib().equals("The Pimp");
+		boolean whoThePigsAreAfter = getWhoThePigsAreAfter().equals(snoop);
+		boolean whoHasAnAttitude = getWhoHasAnAttitude().equals("a nigga");
+		if (whoIsTheCrib || whoThePigsAreAfter || whoHasAnAttitude)
 			System.out.println("Drop it like it's hot");
 	}
 
@@ -32,5 +35,3 @@ public class DropItLikeItsHot {
 		return "The Pimp";
 	}
 }
-
-
