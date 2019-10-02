@@ -11,8 +11,8 @@ import java.awt.Color;
 
 public class WorkIt {
 
-	void putMyThingDown(int missySneakerSize, Color missyCapColor, String bling, int numberOfGrammyAwards, boolean isSupaDupaFly) {
-		flipIt(missySneakerSize, missyCapColor, bling);
+	void putMyThingDown(PutMyThingDownParameter parameterObject) {
+		flipIt(parameterObject.missySneakerSize, parameterObject.missyCapColor, parameterObject.bling);
 	}
 
 	void flipIt(int missySneakerSize, Color missyCapColor, String bling) {
